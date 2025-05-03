@@ -7,7 +7,7 @@ import 'package:instgram_app/model/view/screens/profile.dart';
 import 'package:instgram_app/model/view/screens/search.dart';
 
 class WebScreen extends StatefulWidget {
-  WebScreen({super.key});
+  const WebScreen({super.key});
 
   @override
   State<WebScreen> createState() => _WebScreenState();
@@ -15,8 +15,9 @@ class WebScreen extends StatefulWidget {
 
 class _WebScreenState extends State<WebScreen> {
   bool onIconClick = true;
-  PageController _pageController = PageController();
+  final PageController _pageController = PageController();
 
+  @override
   void dispose() {
     _pageController.dispose();
     super.dispose();
@@ -27,8 +28,7 @@ class _WebScreenState extends State<WebScreen> {
     double h = MediaQuery.sizeOf(context).height;
     double w = MediaQuery.sizeOf(context).width;
     return Scaffold(
-      appBar:
-       AppBar(
+      appBar: AppBar(
         title: Row(
           children: [
             SvgPicture.asset(
@@ -39,33 +39,34 @@ class _WebScreenState extends State<WebScreen> {
           ],
         ),
         actions: [
-          IconButton(onPressed: () {}, icon: Icon(Icons.home)),
+          IconButton(onPressed: () {}, icon: const Icon(Icons.home)),
           const SizedBox(
             width: 9,
           ),
-          IconButton(onPressed: () {}, icon: Icon(Icons.search_rounded)),
+          IconButton(onPressed: () {}, icon: const Icon(Icons.search_rounded)),
           const SizedBox(
             width: 9,
           ),
-          IconButton(onPressed: () {}, icon: Icon(Icons.camera_alt_outlined)),
+          IconButton(
+              onPressed: () {}, icon: const Icon(Icons.camera_alt_outlined)),
           const SizedBox(
             width: 9,
           ),
-          IconButton(onPressed: () {}, icon: Icon(Icons.favorite)),
+          IconButton(onPressed: () {}, icon: const Icon(Icons.favorite)),
           const SizedBox(
             width: 9,
           ),
-          IconButton(onPressed: () {}, icon: Icon(Icons.person)),
+          IconButton(onPressed: () {}, icon: const Icon(Icons.person)),
         ],
       ),
       body: PageView(
         controller: _pageController,
-        physics: NeverScrollableScrollPhysics(),
+        physics: const NeverScrollableScrollPhysics(),
         children: [
-          HomeIcon(),
+          const HomeIcon(),
           Search(),
-          AddItem(),
-          Favorite(),
+          const AddItem(),
+          const Favorite(),
           Profile(),
         ],
       ),

@@ -9,15 +9,15 @@ import 'package:instgram_app/model/view/screens/search.dart';
 import '../model/view/screens/home.dart';
 
 class MobileScreen extends StatefulWidget {
-  MobileScreen({super.key});
+  const MobileScreen({super.key});
 
   @override
   State<MobileScreen> createState() => _MobileScreenState();
 }
 
 class _MobileScreenState extends State<MobileScreen> {
-  PageController _pageController = PageController();
- 
+  final PageController _pageController = PageController();
+
   @override
   void dispose() {
     _pageController.dispose();
@@ -28,12 +28,11 @@ class _MobileScreenState extends State<MobileScreen> {
 
   @override
   Widget build(BuildContext context) {
-      double heightScreen = MediaQuery.sizeOf(context).height;
+    double heightScreen = MediaQuery.sizeOf(context).height;
     double widthScreen = MediaQuery.sizeOf(context).width;
     return Scaffold(
       backgroundColor: mobileBackgroundColor, // Set a specific background color
-      appBar: 
-       AppBar(
+      appBar: AppBar(
         backgroundColor: Colors.transparent,
         title: Row(
           children: [
@@ -45,7 +44,8 @@ class _MobileScreenState extends State<MobileScreen> {
           ],
         ),
         actions: [
-          IconButton(onPressed: () {}, icon: Icon(Icons.messenger_outline_sharp)),
+          IconButton(
+              onPressed: () {}, icon: Icon(Icons.messenger_outline_sharp)),
           SizedBox(width: 9),
           IconButton(onPressed: () {}, icon: Icon(Icons.logout)),
         ],
